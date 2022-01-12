@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/08 00:28:06 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/11 23:55:00 by jfrancis         ###   ########.fr       */
+/*   Created: 2022/01/09 19:37:58 by jfrancis          #+#    #+#             */
+/*   Updated: 2022/01/11 23:54:32 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/mandatory/push_swap.h"
 
-int	main(int argc, char **argv)
+void	create_stacks(t_data *data)
 {
-	t_data	data;
+	int		i;
 
-	init_push_swap(argc, argv, &data);
-
-	return (0);
+	i = 0;
+	data->stack_a.elems = ft_calloc(data->stack_size, sizeof (int));
+	data->stack_b.elems = ft_calloc(data->stack_size, sizeof (int));
+	while (i <= data->stack_size)
+	{
+		data->stack_a.elems[i] = data->stack[i];
+		i++;
+	}
+	data->stack_a.top = data->stack_size;
+	data->stack_b.top = 0;
 }

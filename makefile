@@ -3,14 +3,15 @@ LIBFT = libft.a
 
 LIBFT_PATH = ./libs/libft/
 INCLUDES = -I ./includes
-FILES = push_swap.c error_handler.c validation.c
+FILES = push_swap.c error_handler.c validation.c sort_utils.c swap_utils.c \
+		push_utils.c shift_utils.c rotate_utils.c rrotate_utils.c stack_utils.c
 
 SRC = $(FILES)
 OBJECTS = $(SRC:%.c=%.o)
 SRC_ALL = $(addprefix ./src/mandatory/, $(FILES))
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 all: $(NAME)
 

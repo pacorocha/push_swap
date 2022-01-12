@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   shift_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/08 00:28:06 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/11 23:55:00 by jfrancis         ###   ########.fr       */
+/*   Created: 2022/01/08 21:18:01 by jfrancis          #+#    #+#             */
+/*   Updated: 2022/01/09 20:10:09 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/mandatory/push_swap.h"
 
-int	main(int argc, char **argv)
+void	shift_els_up(int *array, int size)
 {
-	t_data	data;
+	int i;
 
-	init_push_swap(argc, argv, &data);
+	i = size;
+	while (--i >= 0)
+	{
+		array[i + 1] = array[i];
+	}
+}
 
-	return (0);
+void	shift_els_down(int *array, int size)
+{
+	int i;
+
+	i = size;
+	while (i >= 0)
+	{
+		array[i - 1] = array[i];
+		i--;
+	}
 }

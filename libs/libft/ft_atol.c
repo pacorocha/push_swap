@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/08 00:28:06 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/11 23:55:00 by jfrancis         ###   ########.fr       */
+/*   Created: 2022/01/04 20:43:53 by jfrancis          #+#    #+#             */
+/*   Updated: 2022/01/04 20:44:18 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/mandatory/push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+long int	ft_atol(const char *nptr)
 {
-	t_data	data;
+	long int	s;
+	long int	res;
 
-	init_push_swap(argc, argv, &data);
-
-	return (0);
+	s = 1;
+	res = 0;
+	while ((*nptr >= '\t' && *nptr <= '\r') || *nptr == ' ')
+		nptr++;
+	if (*nptr == '+' || *nptr == '-')
+	{
+		if (*nptr == '-')
+			s *= -1;
+		nptr++;
+	}
+	while (ft_isdigit((int)*nptr))
+	{
+		res = (res * 10) + (*nptr - 48);
+		nptr++;
+	}
+	return (res * s);
 }

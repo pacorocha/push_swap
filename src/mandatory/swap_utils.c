@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   swap_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/08 00:28:06 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/11 23:55:00 by jfrancis         ###   ########.fr       */
+/*   Created: 2022/01/08 19:51:25 by jfrancis          #+#    #+#             */
+/*   Updated: 2022/01/09 19:02:08 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/mandatory/push_swap.h"
 
-int	main(int argc, char **argv)
+void swap(int *stack, int size)
 {
-	t_data	data;
+	int	tmp;
 
-	init_push_swap(argc, argv, &data);
-
-	return (0);
+	if (size > 1)
+	{
+		tmp = stack[0];
+		stack[0] = stack[1];
+		stack[1] = tmp;
+	}
 }
