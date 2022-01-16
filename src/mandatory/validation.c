@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 15:49:09 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/15 23:53:52 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/01/16 15:32:34 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static void	start_push_swap(t_data *data)
 			printf("%i\n", data->stack_b.elems[i]);
 			i++;
 		}
-		push(data->stack_a, data->stack_b);
+		rrotate(data->stack_a.elems, data->stack_a.size);
 		i = 0;
 		printf("stack a\n");
 		while (i <= data->stack_a.size - 1)

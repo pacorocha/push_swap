@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 00:30:23 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/12 20:57:37 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/01/16 15:33:01 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ void	init_push_swap(int argc, char **argv, t_data *data);
 void	check_dups(t_data *data);
 int		is_sorted(int *array, int size);
 void	create_stacks(t_data *data);
-void	shift_els_up(int *array, int size);
-void	shift_els_down(int *array, int size);
 void	swap(int *stack, int size);
 void	push(t_stack stack_src, t_stack stack_dest);
+void	rotate(int *stack, int size);
+void	rrotate(int *stack, int size);
 
 #endif
