@@ -6,9 +6,8 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 19:50:55 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/08 19:52:04 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/01/15 22:30:09 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/mandatory/push_swap.h"
-

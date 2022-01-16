@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 15:49:09 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/11 23:56:41 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/01/15 23:53:52 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,35 @@ static void	start_push_swap(t_data *data)
 	int i;
 	if (is_sorted(data->stack, data->stack_size) == 0)
 	{
-		printf("is not sorted");
 		create_stacks(data);
-		i = 3;
-		while (i <= 0)
+		i = 0;
+		printf("stack a\n");
+		while (i <= data->stack_a.size - 1)
 		{
 			printf("%i\n", data->stack_a.elems[i]);
-			i--;
+			i++;
+		}
+		i = 0;
+		printf("stack b\n");
+		while (i <= data->stack_b.size - 1)
+		{
+			printf("%i\n", data->stack_b.elems[i]);
+			i++;
+		}
+		push(data->stack_a, data->stack_b);
+		i = 0;
+		printf("stack a\n");
+		while (i <= data->stack_a.size - 1)
+		{
+			printf("%i\n", data->stack_a.elems[i]);
+			i++;
+		}
+		i = 0;
+		printf("stack b\n");
+		while (i <= data->stack_b.size - 1)
+		{
+			printf("%i\n", data->stack_b.elems[i]);
+			i++;
 		}
 	}
 }
