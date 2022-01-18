@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 15:49:09 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/16 15:32:34 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/01/17 23:49:38 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,15 @@ static void	start_push_swap(t_data *data)
 			i++;
 		}
 		i = 0;
-		printf("stack b\n");
+		printf("\nstack b\n");
 		while (i <= data->stack_b.size - 1)
 		{
 			printf("%i\n", data->stack_b.elems[i]);
 			i++;
 		}
-		rrotate(data->stack_a.elems, data->stack_a.size);
+		printf("\npush b:\n");
+		handle_push("pb", data);
+		handle_push("pb", data);
 		i = 0;
 		printf("stack a\n");
 		while (i <= data->stack_a.size - 1)
@@ -41,7 +43,55 @@ static void	start_push_swap(t_data *data)
 			i++;
 		}
 		i = 0;
-		printf("stack b\n");
+		printf("\nstack b\n");
+		while (i <= data->stack_b.size - 1)
+		{
+			printf("%i\n", data->stack_b.elems[i]);
+			i++;
+		}
+		printf("\nswap a:\n");
+		handle_swap("sa", data);
+		i = 0;
+		printf("stack a\n");
+		while (i <= data->stack_a.size - 1)
+		{
+			printf("%i\n", data->stack_a.elems[i]);
+			i++;
+		}
+		i = 0;
+		printf("\nstack b\n");
+		while (i <= data->stack_b.size - 1)
+		{
+			printf("%i\n", data->stack_b.elems[i]);
+			i++;
+		}
+		printf("\nswap b:\n");
+		handle_swap("sb", data);
+		i = 0;
+		printf("stack a\n");
+		while (i <= data->stack_a.size - 1)
+		{
+			printf("%i\n", data->stack_a.elems[i]);
+			i++;
+		}
+		i = 0;
+		printf("\nstack b\n");
+		while (i <= data->stack_b.size - 1)
+		{
+			printf("%i\n", data->stack_b.elems[i]);
+			i++;
+		}
+		printf("\nswap both:\n");
+		handle_swap("ss", data);
+		i = 0;
+		printf("stack a\n");
+		while (i <= data->stack_a.size - 1)
+		{
+			printf("%i\n", data->stack_a.elems[i]);
+			i++;
+		}
+		i = 0;
+		printf("\nstack b\n");
 		while (i <= data->stack_b.size - 1)
 		{
 			printf("%i\n", data->stack_b.elems[i]);
