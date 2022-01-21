@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 23:01:13 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/20 21:09:04 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/01/20 21:31:40 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,11 @@ int	find_smallest(int *array, int size)
 	int	sm;
 
 	i = 0;
+	sm = MAX_INT;
 	while (i < size)
 	{
-		sm = array[i];
+		if (array[i] < sm)
+			sm = array[i];
 		i++;
 	}
 	return (sm);

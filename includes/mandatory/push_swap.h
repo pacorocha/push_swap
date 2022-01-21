@@ -6,12 +6,15 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 00:30:23 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/20 21:05:57 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/01/20 21:13:45 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+#define MAX_INT 2147483647
+#define	MIN_INT	-2147483648
 
 # include "../../libs/libft/libft.h"
 
