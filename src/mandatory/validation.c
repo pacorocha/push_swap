@@ -6,99 +6,11 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 15:49:09 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/17 23:49:38 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/01/20 20:49:04 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/mandatory/push_swap.h"
-
-static void	start_push_swap(t_data *data)
-{
-	int i;
-	if (is_sorted(data->stack, data->stack_size) == 0)
-	{
-		create_stacks(data);
-		i = 0;
-		printf("stack a\n");
-		while (i <= data->stack_a.size - 1)
-		{
-			printf("%i\n", data->stack_a.elems[i]);
-			i++;
-		}
-		i = 0;
-		printf("\nstack b\n");
-		while (i <= data->stack_b.size - 1)
-		{
-			printf("%i\n", data->stack_b.elems[i]);
-			i++;
-		}
-		printf("\npush b:\n");
-		handle_push("pb", data);
-		handle_push("pb", data);
-		i = 0;
-		printf("stack a\n");
-		while (i <= data->stack_a.size - 1)
-		{
-			printf("%i\n", data->stack_a.elems[i]);
-			i++;
-		}
-		i = 0;
-		printf("\nstack b\n");
-		while (i <= data->stack_b.size - 1)
-		{
-			printf("%i\n", data->stack_b.elems[i]);
-			i++;
-		}
-		printf("\nswap a:\n");
-		handle_swap("sa", data);
-		i = 0;
-		printf("stack a\n");
-		while (i <= data->stack_a.size - 1)
-		{
-			printf("%i\n", data->stack_a.elems[i]);
-			i++;
-		}
-		i = 0;
-		printf("\nstack b\n");
-		while (i <= data->stack_b.size - 1)
-		{
-			printf("%i\n", data->stack_b.elems[i]);
-			i++;
-		}
-		printf("\nswap b:\n");
-		handle_swap("sb", data);
-		i = 0;
-		printf("stack a\n");
-		while (i <= data->stack_a.size - 1)
-		{
-			printf("%i\n", data->stack_a.elems[i]);
-			i++;
-		}
-		i = 0;
-		printf("\nstack b\n");
-		while (i <= data->stack_b.size - 1)
-		{
-			printf("%i\n", data->stack_b.elems[i]);
-			i++;
-		}
-		printf("\nswap both:\n");
-		handle_swap("ss", data);
-		i = 0;
-		printf("stack a\n");
-		while (i <= data->stack_a.size - 1)
-		{
-			printf("%i\n", data->stack_a.elems[i]);
-			i++;
-		}
-		i = 0;
-		printf("\nstack b\n");
-		while (i <= data->stack_b.size - 1)
-		{
-			printf("%i\n", data->stack_b.elems[i]);
-			i++;
-		}
-	}
-}
 
 void	check_dups(t_data *data)
 {
@@ -106,9 +18,9 @@ void	check_dups(t_data *data)
 	int	j;
 
 	i = 0;
-	j = 1;
-	while (i < data->stack_size - 1)
+	while (i < data->stack_size)
 	{
+		j = i + 1;
 		while (j < data->stack_size)
 		{
 			if (data->stack[i] == data->stack[j])

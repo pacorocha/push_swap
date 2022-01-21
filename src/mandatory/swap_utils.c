@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 19:51:25 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/17 23:32:08 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/01/19 20:44:12 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,18 @@ void swap(int *stack, int size)
 void	handle_swap(char *op, t_data *data)
 {
 	if (ft_strncmp(op, "sa", 2) == 0)
+	{
+		ft_putstr_fd("sa\n", 1);
 		swap(data->stack_a.elems, data->stack_a.size);
+	}
 	else if (ft_strncmp(op, "sb", 2) == 0)
+	{
+		ft_putstr_fd("sb\n", 1);
 		swap(data->stack_b.elems, data->stack_b.size);
+	}
 	else if (ft_strncmp(op, "ss", 2) == 0)
 	{
+		ft_putstr_fd("ss\n", 1);
 		swap(data->stack_a.elems, data->stack_a.size);
 		swap(data->stack_b.elems, data->stack_b.size);
 	}

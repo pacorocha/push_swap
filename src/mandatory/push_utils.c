@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 18:42:56 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/17 23:19:39 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/01/19 20:37:11 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,13 @@ void	push(t_stack *stack_src, t_stack *stack_dest)
 void	handle_push(char *op, t_data *data)
 {
 	if (ft_strncmp(op, "pa", 2) == 0)
+	{
+		ft_putstr_fd("pa\n", 1);
 		push(&data->stack_b, &data->stack_a);
+	}
 	else if (ft_strncmp(op, "pb", 2) == 0)
+	{
+		ft_putstr_fd("pb\n", 1);
 		push(&data->stack_a, &data->stack_b);
+	}
 }

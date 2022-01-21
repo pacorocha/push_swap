@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/18 20:17:32 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/19 21:07:15 by jfrancis         ###   ########.fr       */
+/*   Created: 2022/01/20 20:48:39 by jfrancis          #+#    #+#             */
+/*   Updated: 2022/01/20 20:58:29 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/mandatory/push_swap.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	start_push_swap(t_data *data)
 {
-	size_t	total_size;
-	void	*ptr;
-
-	total_size = nmemb * size;
-	ptr = malloc(total_size);
-	if (ptr == NULL)
-		return (NULL);
-	ft_memset(ptr, 0, total_size);
-	return (ptr);
+	if (is_sorted(data->stack, data->stack_size) == 0)
+	{
+		create_stacks(data);
+		if (is_reversed(data->stack, data->stack_size) == 1)
+			sort_reversed(data);
+		else
+		{
+			find_smallest(data->stack_a.elems, data->stack_a.size);
+		}
+	}
 }

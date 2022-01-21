@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 23:01:13 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/08 18:22:41 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/01/20 21:09:04 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,57 @@ int	is_sorted(int *array, int size)
 		i++;
 	}
 	return (1);
+}
+
+int	is_reversed(int *array, int size)
+{
+	int	start;
+	int	end;
+	int tmp;
+
+	start = 0;
+	end = size -1;
+    while (start < end)
+    {
+        tmp = array[start];
+        array[start] = array[end];
+        array[end] = tmp;
+		start++,
+		end--;
+    }
+	if (is_sorted(array, size) == 1)
+		return (1);
+	else
+		return (0);
+}
+
+void sort_reversed(t_data *data)
+{
+	int i = 0;
+	while (i < data->stack_size - 1)
+	{
+		handle_rrotate("rra", data);
+		handle_push("pb", data);
+		i++;
+	}
+	i = 0;
+	while (i < data->stack_size)
+	{
+		handle_push("pa", data);
+		i++;
+	}
+}
+
+int	find_smallest(int *array, int size)
+{
+	int i;
+	int	sm;
+
+	i = 0;
+	while (i < size)
+	{
+		sm = array[i];
+		i++;
+	}
+	return (sm);
 }
