@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 15:49:09 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/20 21:14:33 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/01/22 23:56:46 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,19 @@ void	check_dups(t_data *data)
 	start_push_swap(data);
 }
 
+int	validate_number(char **argv, int i)
+{
+	long int	j;
+
+	j = 0;
+	if (!ft_isdigit(argv[i][0]))
+		print_error();
+	j = ft_atol(argv[i]);
+	if (j > MAX_INT || j < MIN_INT)
+		print_error();
+	return (j);
+}
+
 void	init_push_swap(int argc, char **argv, t_data *data)
 {
 	int			i;
@@ -41,16 +54,14 @@ void	init_push_swap(int argc, char **argv, t_data *data)
 	i = 1;
 	j = 0;
 	stack_size = 0;
-	if (argc == 1)
-		print_error();
 	data->stack = ft_calloc(argc - 1, sizeof (int));
 	if (!data->stack)
 		print_error();
 	while (i < argc)
 	{
-		j = ft_atol(argv[i]);
-		if (!j || j > MAX_INT || j < MIN_INT)
-			print_error();
+		j = validate_number(argv, i);
+		if (j == 0)
+			data->stack[stack_size] = j;
 		else
 			data->stack[stack_size] = j;
 		stack_size++;

@@ -1,0 +1,4 @@
+log_error/*
+*.log
+checker_linux
+tester.sh

@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 23:01:13 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/20 21:31:40 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/01/22 23:46:06 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,27 +30,29 @@ int	is_reversed(int *array, int size)
 {
 	int	start;
 	int	end;
-	int tmp;
+	int	tmp;
 
 	start = 0;
-	end = size -1;
-    while (start < end)
-    {
-        tmp = array[start];
-        array[start] = array[end];
-        array[end] = tmp;
+	end = size - 1;
+	while (start < end)
+	{
+		tmp = array[start];
+		array[start] = array[end];
+		array[end] = tmp;
 		start++,
 		end--;
-    }
+	}
 	if (is_sorted(array, size) == 1)
 		return (1);
 	else
 		return (0);
 }
 
-void sort_reversed(t_data *data)
+void	sort_reversed(t_data *data)
 {
-	int i = 0;
+	int	i;
+
+	i = 0;
 	while (i < data->stack_size - 1)
 	{
 		handle_rrotate("rra", data);
@@ -67,11 +69,11 @@ void sort_reversed(t_data *data)
 
 int	find_smallest(int *array, int size)
 {
-	int i;
+	int	i;
 	int	sm;
 
 	i = 0;
-	sm = MAX_INT;
+	sm = array[0];
 	while (i < size)
 	{
 		if (array[i] < sm)
@@ -79,4 +81,10 @@ int	find_smallest(int *array, int size)
 		i++;
 	}
 	return (sm);
+}
+
+void	sort_two(t_data *data)
+{
+	if (data->stack_a.elems[0] > data->stack_a.elems[1])
+		handle_swap("sa", data);
 }

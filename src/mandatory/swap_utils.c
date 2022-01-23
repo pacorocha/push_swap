@@ -6,13 +6,13 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 19:51:25 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/19 20:44:12 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/01/22 23:48:51 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/mandatory/push_swap.h"
 
-void swap(int *stack, int size)
+void	swap(int *stack, int size)
 {
 	int	tmp;
 
