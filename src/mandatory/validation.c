@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 15:49:09 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/22 23:56:46 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/01/24 23:28:13 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,9 @@ int	validate_number(char **argv, int i)
 	long int	j;
 
 	j = 0;
-	if (!ft_isdigit(argv[i][0]))
-		print_error();
+	if (argv[i][0] != '-')
+		if (!ft_isdigit(argv[i][0]))
+			print_error();
 	j = ft_atol(argv[i]);
 	if (j > MAX_INT || j < MIN_INT)
 		print_error();

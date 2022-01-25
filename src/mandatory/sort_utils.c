@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 23:01:13 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/22 23:46:06 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/01/24 23:35:23 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,24 +67,35 @@ void	sort_reversed(t_data *data)
 	}
 }
 
-int	find_smallest(int *array, int size)
-{
-	int	i;
-	int	sm;
-
-	i = 0;
-	sm = array[0];
-	while (i < size)
-	{
-		if (array[i] < sm)
-			sm = array[i];
-		i++;
-	}
-	return (sm);
-}
-
 void	sort_two(t_data *data)
 {
 	if (data->stack_a.elems[0] > data->stack_a.elems[1])
 		handle_swap("sa", data);
+}
+
+int	sort_three(t_data *data)
+{
+	if (data->stack_a.elems[0] > data->stack_a.elems[1]
+		&& data->stack_a.elems[0] < data->stack_a.elems[2])
+	{
+		handle_swap("sa", data);
+		return (0);
+	}
+	if (data->stack_a.elems[0] > data->stack_a.elems[2]
+		&& data->stack_a.elems[2] > data->stack_a.elems[1])
+	{
+		handle_rotate("ra", data);
+		return (0);
+	}
+	if (data->stack_a.elems[0] > data->stack_a.elems[1]
+		&& data->stack_a.elems[1] > data->stack_a.elems[2])
+	{
+		handle_swap("sa", data);
+		handle_rrotate("rra", data);
+		return (0);
+	}
+	if (data->stack_a.elems[0] < data->stack_a.elems[1]
+		&& data->stack_a.elems[1] > data->stack_a.elems[2])
+		handle_rrotate("rra", data);
+	return (0);
 }

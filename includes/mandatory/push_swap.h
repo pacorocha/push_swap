@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 00:30:23 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/22 23:39:45 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/01/24 23:46:24 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int		is_sorted(int *array, int size);
 int		is_reversed(int *array, int size);
 void	sort_reversed(t_data *data);
 int		find_smallest(int *array, int size);
+int		get_index(int *haystack, int needle, int size);
 void	create_stacks(t_data *data);
 void	destroy_stacks(t_data *data);
 void	swap(int *stack, int size);

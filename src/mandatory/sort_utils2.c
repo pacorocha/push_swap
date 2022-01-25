@@ -6,35 +6,38 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 21:03:29 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/22 23:47:37 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/01/24 23:45:43 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/mandatory/push_swap.h"
 
-int	sort_three(t_data *data)
+int	find_smallest(int *array, int size)
 {
-	if (data->stack_a.elems[0] > data->stack_a.elems[1]
-		&& data->stack_a.elems[0] < data->stack_a.elems[2])
+	int	i;
+	int	sm;
+
+	i = 0;
+	sm = array[0];
+	while (i < size)
 	{
-		handle_swap("sa", data);
-		return (0);
+		if (array[i] < sm)
+			sm = array[i];
+		i++;
 	}
-	if (data->stack_a.elems[0] > data->stack_a.elems[2]
-		&& data->stack_a.elems[2] > data->stack_a.elems[1])
+	return (sm);
+}
+
+int	get_index(int *haystack, int needle, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
 	{
-		handle_rotate("ra", data);
-		return (0);
+		if (needle == haystack[i])
+			break;
+		i++;
 	}
-	if (data->stack_a.elems[0] > data->stack_a.elems[1]
-		&& data->stack_a.elems[1] > data->stack_a.elems[2])
-	{
-		handle_swap("sa", data);
-		handle_rrotate("rra", data);
-		return (0);
-	}
-	if (data->stack_a.elems[0] < data->stack_a.elems[1]
-		&& data->stack_a.elems[1] > data->stack_a.elems[2])
-		handle_rrotate("rra", data);
-	return (0);
+	return (i);
 }
