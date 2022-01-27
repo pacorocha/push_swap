@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 20:48:39 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/24 23:48:35 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/01/26 21:32:04 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,21 @@ void	start_push_swap(t_data *data)
 			sort_two(data);
 		else if (data->stack_size == 3)
 			sort_three(data);
-		else
+		else if (data->stack_size > 3 && data->stack_size < 10)
 		{
-			int i;
-			int index;
-			if (is_reversed(data->stack, data->stack_size) == 1)
-				sort_reversed(data);
-			if (is_reversed(data->stack, data->stack_size) == 0)
+			while (data->stack_a.size > 3)
 			{
-				find_smallest(data->stack_a.elems, data->stack_a.size);
+				sort_small(data);
 			}
-			i = find_smallest(data->stack_a.elems, data->stack_a.size);
-			printf("smallest = %i\n", i);
-			index = get_index(data->stack_a.elems, i, data->stack_a.size);
-			printf("index: %i", index);
+			if (is_sorted(data->stack_a.elems, data->stack_a.size) == 0)
+				sort_three(data);
+			if (data->stack_b.size > 0)
+			{
+				while(data->stack_b.size > 0)
+				{
+					handle_push("pa", data);
+				}
+			}
 		}
 		destroy_stacks(data);
 	}

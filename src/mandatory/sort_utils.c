@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/04 23:01:13 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/24 23:35:23 by jfrancis         ###   ########.fr       */
+/*   Created: 2022/01/22 21:03:29 by jfrancis          #+#    #+#             */
+/*   Updated: 2022/01/25 21:41:31 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,76 +26,32 @@ int	is_sorted(int *array, int size)
 	return (1);
 }
 
-int	is_reversed(int *array, int size)
+int	find_smallest(int *array, int size)
 {
-	int	start;
-	int	end;
-	int	tmp;
+	int	i;
+	int	sm;
 
-	start = 0;
-	end = size - 1;
-	while (start < end)
+	i = 0;
+	sm = array[0];
+	while (i < size)
 	{
-		tmp = array[start];
-		array[start] = array[end];
-		array[end] = tmp;
-		start++,
-		end--;
+		if (array[i] < sm)
+			sm = array[i];
+		i++;
 	}
-	if (is_sorted(array, size) == 1)
-		return (1);
-	else
-		return (0);
+	return (sm);
 }
 
-void	sort_reversed(t_data *data)
+int	get_index(int *haystack, int needle, int size)
 {
 	int	i;
 
 	i = 0;
-	while (i < data->stack_size - 1)
+	while (i < size)
 	{
-		handle_rrotate("rra", data);
-		handle_push("pb", data);
+		if (needle == haystack[i])
+			break ;
 		i++;
 	}
-	i = 0;
-	while (i < data->stack_size)
-	{
-		handle_push("pa", data);
-		i++;
-	}
-}
-
-void	sort_two(t_data *data)
-{
-	if (data->stack_a.elems[0] > data->stack_a.elems[1])
-		handle_swap("sa", data);
-}
-
-int	sort_three(t_data *data)
-{
-	if (data->stack_a.elems[0] > data->stack_a.elems[1]
-		&& data->stack_a.elems[0] < data->stack_a.elems[2])
-	{
-		handle_swap("sa", data);
-		return (0);
-	}
-	if (data->stack_a.elems[0] > data->stack_a.elems[2]
-		&& data->stack_a.elems[2] > data->stack_a.elems[1])
-	{
-		handle_rotate("ra", data);
-		return (0);
-	}
-	if (data->stack_a.elems[0] > data->stack_a.elems[1]
-		&& data->stack_a.elems[1] > data->stack_a.elems[2])
-	{
-		handle_swap("sa", data);
-		handle_rrotate("rra", data);
-		return (0);
-	}
-	if (data->stack_a.elems[0] < data->stack_a.elems[1]
-		&& data->stack_a.elems[1] > data->stack_a.elems[2])
-		handle_rrotate("rra", data);
-	return (0);
+	return (i);
 }
