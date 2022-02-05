@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 23:01:13 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/26 21:31:19 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/01/30 15:39:10 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,19 @@ void	sort_two(t_data *data)
 		handle_swap("sa", data);
 }
 
-int	sort_three(t_data *data)
+void	sort_three(t_data *data)
 {
 	if (data->stack_a.elems[0] > data->stack_a.elems[1]
 		&& data->stack_a.elems[0] < data->stack_a.elems[2])
-	{
 		handle_swap("sa", data);
-		return (0);
-	}
 	if (data->stack_a.elems[0] > data->stack_a.elems[2]
 		&& data->stack_a.elems[2] > data->stack_a.elems[1])
-	{
 		handle_rotate("ra", data);
-		return (0);
-	}
 	if (data->stack_a.elems[0] > data->stack_a.elems[1]
 		&& data->stack_a.elems[1] > data->stack_a.elems[2])
 	{
 		handle_swap("sa", data);
 		handle_rrotate("rra", data);
-		return (0);
 	}
 	if (data->stack_a.elems[0] < data->stack_a.elems[1]
 		&& data->stack_a.elems[1] > data->stack_a.elems[2])
@@ -46,25 +39,40 @@ int	sort_three(t_data *data)
 		if (is_sorted(data->stack_a.elems, data->stack_a.size) == 0)
 			handle_swap("sa", data);
 	}
-	return (0);
 }
 
-void	sort_small(t_data *data)
+void	sort_ten(t_data *data)
 {
-	int	smallest;
+	int	sm;
+
+	while (data->stack_a.size > 3)
+	{
+		sm = find_smallest(data->stack_a.elems, data->stack_a.size);
+		divide_by_pivot(data->stack_a, sm, data);
+	}
+	if (is_sorted(data->stack_a.elems, data->stack_a.size) == 0)
+		sort_three(data);
+	if (data->stack_b.size > 0)
+	{
+		while (data->stack_b.size > 0)
+			handle_push("pa", data);
+	}
+}
+
+void	divide_by_pivot(t_stack stack, int pivot, t_data *data)
+{
 	int	index;
 	int	distance;
 
-	smallest = find_smallest(data->stack_a.elems, data->stack_a.size);
-	index = get_index(data->stack_a.elems, smallest, data->stack_a.size);
-	distance = (data->stack_a.size / 2);
+	index = get_index(stack.elems, pivot, stack.size);
+	distance = (stack.size / 2);
 	while (index != 0)
 	{
 		if (distance > index)
 			handle_rotate("ra", data);
 		else
 			handle_rrotate("rra", data);
-		index = get_index(data->stack_a.elems, smallest, data->stack_a.size);
+		index = get_index(stack.elems, pivot, stack.size);
 	}
 	handle_push("pb", data);
 }

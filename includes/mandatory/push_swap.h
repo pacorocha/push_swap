@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 00:30:23 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/25 19:58:49 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/02/01 22:09:41 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ void	rrotate(int *stack, int size);
 void	handle_rrotate(char *op, t_data *data);
 void	start_push_swap(t_data *data);
 void	sort_two(t_data *data);
-int		sort_three(t_data *data);
+void	sort_three(t_data *data);
 void	sort_small(t_data *data);
+void	sort_ten(t_data *data);
+void	sort_hundred(t_data *data);
+void	divide_by_pivot(t_stack stack, int pivot, t_data *data);
 
 #endif
