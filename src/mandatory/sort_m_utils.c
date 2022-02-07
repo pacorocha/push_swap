@@ -43,14 +43,46 @@ static void	sort_helper(int *arr, int n)
 	}
 }
 
-// Driver code
+static void	push_to_b(int *tmp, t_data *data) {
+	int pivot[3];
+	int p_i[3];
+	int j;
+	int i;
+
+	i = 0;
+	while (i <= 2 && data->stack_a.size > 3)
+	{
+		j = 0;
+		p_i[i] = data->stack_a.size * (i + 1) / 4;
+		pivot[i] = tmp[p_i[i]];
+		while (j < data->stack_a.size)
+		{
+			if (tmp[j] <= pivot[i])
+				divide_by_pivot(data->stack_a, tmp[j], data);
+			j++;
+		}
+		i++;
+	}
+	if (data->stack_a.size < 3)
+		sort_two(data);
+	else if (data->stack_a.size == 3)
+		sort_three(data);
+	i = 0;
+	while (i < data->stack_b.size)
+	{
+		if (data->stack_b.elems[0] < data->stack_b.elems[1])
+			handle_swap("sb", data);
+		else
+			handle_push("pa", data);
+	}
+}
+
 void	sort_hundred(t_data *data)
 {
     int *tmp;
-	int i = 0;
-	int pivot[3];
-	int p_i[3];
-	int	j;
+	int i;
+
+	i = 0;
 
 	tmp = ft_calloc(data->stack_a.size, sizeof (int));
 	while (i < data->stack_size)
@@ -59,35 +91,5 @@ void	sort_hundred(t_data *data)
 		i++;
 	}
 	sort_helper(tmp, data->stack_a.size);
-	p_i[0] = data->stack_a.size / 4;
-	pivot[0] = tmp[p_i[0]];
-	p_i[1] = data->stack_a.size / 2;
-	pivot[1] = tmp[p_i[1]];
-	p_i[2] = data->stack_a.size * (3/4) ;
-	pivot[2] = tmp[p_i[2]];
-	i = 0;
-	j = 0;
-	while (j < data->stack_a.size)
-	{
-		if (tmp[j] <= pivot[0])
-			divide_by_pivot(data->stack_a, tmp[j], data);
-		j++;
-		i++;
-	}
-	j = 0;
-	while (j < data->stack_a.size - i)
-	{
-		if (tmp[j] <= pivot[1])
-			divide_by_pivot(data->stack_a, tmp[j], data);
-		j++;
-		i++;
-	}
-	j = 0;
-	while (j < data->stack_a.size - i)
-	{
-		if (tmp[j] <= pivot[2])
-			divide_by_pivot(data->stack_a, tmp[j], data);
-		j++;
-		i++;
-	}
+	push_to_b(tmp, data);
 }

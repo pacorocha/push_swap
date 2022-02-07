@@ -46,10 +46,8 @@ void	sort_ten(t_data *data)
 	int	sm;
 
 	while (data->stack_a.size > 3)
-	{
 		sm = find_smallest(data->stack_a.elems, data->stack_a.size);
-		divide_by_pivot(data->stack_a, sm, data);
-	}
+	divide_by_pivot(data->stack_a, sm, data);
 	if (is_sorted(data->stack_a.elems, data->stack_a.size) == 0)
 		sort_three(data);
 	if (data->stack_b.size > 0)
@@ -66,7 +64,7 @@ void	divide_by_pivot(t_stack stack, int pivot, t_data *data)
 
 	index = get_index(stack.elems, pivot, stack.size);
 	distance = (stack.size / 2);
-	while (index != 0)
+	while (index < 0)
 	{
 		if (distance > index)
 			handle_rotate("ra", data);
