@@ -68,3 +68,16 @@ void	sort_small(t_data *data)
 	}
 	handle_push("pb", data);
 }
+
+void	sort_ten(t_data *data)
+{
+	while (data->stack_a.size > 3)
+		sort_small(data);
+	if (is_sorted(data->stack_a.elems, data->stack_a.size) == 0)
+		sort_three(data);
+	if (data->stack_b.size > 0)
+	{
+		while(data->stack_b.size > 0)
+			handle_push("pa", data);
+	}
+}

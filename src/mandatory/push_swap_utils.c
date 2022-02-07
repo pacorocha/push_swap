@@ -21,22 +21,8 @@ void	start_push_swap(t_data *data)
 			sort_two(data);
 		else if (data->stack_size == 3)
 			sort_three(data);
-		else if (data->stack_size > 3 && data->stack_size < 10)
-		{
-			while (data->stack_a.size > 3)
-			{
-				sort_small(data);
-			}
-			if (is_sorted(data->stack_a.elems, data->stack_a.size) == 0)
-				sort_three(data);
-			if (data->stack_b.size > 0)
-			{
-				while(data->stack_b.size > 0)
-				{
-					handle_push("pa", data);
-				}
-			}
-		}
+		else if (data->stack_size > 3 && data->stack_size <= 10)
+			sort_ten(data);
 		destroy_stacks(data);
 	}
 }

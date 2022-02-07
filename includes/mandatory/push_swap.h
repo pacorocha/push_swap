@@ -53,5 +53,6 @@ void	start_push_swap(t_data *data);
 void	sort_two(t_data *data);
 int		sort_three(t_data *data);
 void	sort_small(t_data *data);
+void	sort_ten(t_data *data);
 
 #endif
