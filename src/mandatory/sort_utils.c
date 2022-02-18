@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 21:03:29 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/25 21:41:31 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/02/13 22:17:39 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ int	get_index(int *haystack, int needle, int size)
 	while (i < size)
 	{
 		if (needle == haystack[i])
-			break ;
+			return (i);
 		i++;
 	}
-	return (i);
+	return (i - 1);
 }
