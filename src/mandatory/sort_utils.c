@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 21:03:29 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/02/13 22:17:39 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/02/19 22:01:23 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,32 +26,66 @@ int	is_sorted(int *array, int size)
 	return (1);
 }
 
-int	find_smallest(int *array, int size)
+void	sort_two(t_data *data)
 {
-	int	i;
-	int	sm;
-
-	i = 0;
-	sm = array[0];
-	while (i < size)
-	{
-		if (array[i] < sm)
-			sm = array[i];
-		i++;
-	}
-	return (sm);
+	if (data->stack_a.elems[0] > data->stack_a.elems[1])
+		handle_swap("sa", data);
 }
 
-int	get_index(int *haystack, int needle, int size)
+int	sort_three(t_data *data)
 {
-	int	i;
-
-	i = 0;
-	while (i < size)
+	if (data->stack_a.elems[0] > data->stack_a.elems[1]
+		&& data->stack_a.elems[0] < data->stack_a.elems[2])
+		handle_swap("sa", data);
+	else if (data->stack_a.elems[0] > data->stack_a.elems[2]
+		&& data->stack_a.elems[2] > data->stack_a.elems[1])
+		handle_rotate("ra", data);
+	else if (data->stack_a.elems[0] > data->stack_a.elems[1]
+		&& data->stack_a.elems[1] > data->stack_a.elems[2])
 	{
-		if (needle == haystack[i])
-			return (i);
-		i++;
+		handle_swap("sa", data);
+		handle_rrotate("rra", data);
+		return (0);
 	}
-	return (i - 1);
+	else if (data->stack_a.elems[0] < data->stack_a.elems[1]
+		&& data->stack_a.elems[1] > data->stack_a.elems[2])
+	{
+		handle_rrotate("rra", data);
+		if (is_sorted(data->stack_a.elems, data->stack_a.size) == 0)
+			handle_swap("sa", data);
+	}
+	return (0);
+}
+
+void	sort_small(t_data *data)
+{
+	int	smallest;
+	int	index;
+	int	distance;
+
+	smallest = find_smallest(data->stack_a.elems, data->stack_a.size);
+	index = get_index(data->stack_a.elems, smallest, data->stack_a.size);
+	distance = (data->stack_a.size / 2);
+	while (index != 0)
+	{
+		if (distance > index)
+			handle_rotate("ra", data);
+		else
+			handle_rrotate("rra", data);
+		index = get_index(data->stack_a.elems, smallest, data->stack_a.size);
+	}
+	handle_push("pb", data);
+}
+
+void	sort_ten(t_data *data)
+{
+	while (data->stack_a.size > 3)
+		sort_small(data);
+	if (is_sorted(data->stack_a.elems, data->stack_a.size) == 0)
+		sort_three(data);
+	if (data->stack_b.size > 0)
+	{
+		while (data->stack_b.size > 0)
+			handle_push("pa", data);
+	}
 }

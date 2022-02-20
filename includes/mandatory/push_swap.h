@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 00:30:23 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/02/17 22:47:20 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/02/19 21:46:23 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void		*ft_memcpy(void *dest, const void *src, size_t n);
 void		*ft_memset(void *b, int c, size_t n);
 void		*ft_memmove(void *dest, const void *src, size_t n);
 void		*ft_calloc(size_t nmemb, size_t size);
-
+void		ft_printnb_array(int *arr, int size);
 
 void		print_error(void);
 int			*init_stack(int argc, int *array);
@@ -70,5 +70,10 @@ int			sort_three(t_data *data);
 void		sort_small(t_data *data);
 void		sort_ten(t_data *data);
 void		sort_hundred(t_data *data);
+void		helper_swap(int *x, int *y);
+void		sort_helper(int *arr, int n);
+void		init_pivots(int i, t_data *data);
+void		divide_stack(int p, t_data *data);
+void		init_helper(t_data *data);
 
 #endif
