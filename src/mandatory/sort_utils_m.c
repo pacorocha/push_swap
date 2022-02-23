@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 21:46:00 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/02/19 21:51:41 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/02/22 23:42:21 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ void	init_pivots(int i, t_data *data)
 		data->pivots[j] = data->helper[p_i[j]];
 		j++;
 	}
-	free(p_i);
 }
 
 void	init_helper(t_data *data)
@@ -88,16 +87,10 @@ void	sort_hundred(t_data *data)
 		divide_stack(i, data);
 		i++;
 	}
-	while (data->stack_a.size > 3)
+	while (is_sorted(data->stack_a.elems, data->stack_a.size) == 0)
 		sort_small(data);
 	if (is_sorted(data->stack_a.elems, data->stack_a.size) == 0)
 		sort_three(data);
-	ft_putstr_fd("Stack A\nSize: ", 1);
-	ft_putnbr_fd(data->stack_a.size, 1);
-	ft_putstr_fd("\n", 1);
-	ft_printnb_array(data->stack_a.elems, data->stack_a.size);
-	ft_putstr_fd("Stack B\nSize: ", 1);
-	ft_putnbr_fd(data->stack_b.size, 1);
-	ft_putstr_fd("\n", 1);
-	ft_printnb_array(data->stack_b.elems, data->stack_b.size);
+	while (data->stack_b.size > 0)
+		conquer_b(data);
 }

@@ -3,3 +3,4 @@ log_error/*
 checker_linux
 tester.sh
 .vscode/
+*.py

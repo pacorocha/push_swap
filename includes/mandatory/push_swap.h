@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 00:30:23 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/02/19 21:46:23 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/02/19 22:17:38 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void		init_push_swap(int argc, char **argv, t_data *data);
 void		check_dups(t_data *data);
 int			is_sorted(int *array, int size);
 int			find_smallest(int *array, int size);
+int			find_biggest(int *array, int size);
 int			get_index(int *haystack, int needle, int size);
 void		create_stacks(t_data *data);
 void		destroy_stacks(t_data *data);
@@ -75,5 +76,6 @@ void		sort_helper(int *arr, int n);
 void		init_pivots(int i, t_data *data);
 void		divide_stack(int p, t_data *data);
 void		init_helper(t_data *data);
+void		conquer_b(t_data *data);
 
 #endif

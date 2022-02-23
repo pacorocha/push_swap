@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 20:48:39 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/02/08 23:23:44 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/02/22 23:39:26 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	start_push_swap(t_data *data)
 			sort_three(data);
 		else if (data->stack_size > 3 && data->stack_size <= 10)
 			sort_ten(data);
-		else if (data->stack_size > 3 && data->stack_size <= 100)
+		else if (data->stack_size > 3 && data->stack_size > 10)
 			sort_hundred(data);
 		destroy_stacks(data);
 	}

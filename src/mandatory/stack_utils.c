@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 19:37:58 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/01/25 21:43:00 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/02/21 16:29:47 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	create_stacks(t_data *data)
 
 void	destroy_stacks(t_data *data)
 {
-	data->stack_a.elems = NULL;
-	data->stack_b.elems = NULL;
 	free(data->stack_a.elems);
 	free(data->stack_b.elems);
+	data->stack_a.elems = NULL;
+	data->stack_b.elems = NULL;
 }

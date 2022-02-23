@@ -6,11 +6,31 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 21:38:25 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/02/19 22:05:23 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/02/22 23:16:14 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/mandatory/push_swap.h"
+
+void	conquer_b(t_data *data)
+{
+	int	biggest;
+	int	index;
+
+	biggest = find_biggest(data->stack_b.elems, data->stack_b.size);
+	index = get_index(data->stack_b.elems, biggest, data->stack_b.size);
+	if (index == 0)
+		handle_push("pa", data);
+	else
+	{
+		while (index != 0)
+		{
+			handle_rotate("rb", data);
+			index = get_index(data->stack_b.elems, biggest, data->stack_b.size);
+		}
+		handle_push("pa", data);
+	}
+}
 
 void	divide_stack(int p, t_data *data)
 {
