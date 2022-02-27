@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils_m2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 21:38:25 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/02/22 23:16:14 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/02/23 04:01:08 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	divide_stack(int p, t_data *data)
 			ndl = data->stack_a.elems[i];
 			index = get_index(data->stack_a.elems, ndl, data->stack_a.size);
 			distance = (data->stack_a.size * (p + 1) / 4);
-			while (index != 0)
+			if (index != 0)
 			{
 				if (distance > index)
 					handle_rotate("ra", data);
@@ -55,7 +55,8 @@ void	divide_stack(int p, t_data *data)
 					handle_rrotate("rra", data);
 				index = get_index(data->stack_a.elems, ndl, data->stack_a.size);
 			}
-			handle_push("pb", data);
+			else
+				handle_push("pb", data);
 		}
 		i++;
 	}
