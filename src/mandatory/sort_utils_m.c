@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 21:46:00 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/02/22 23:42:21 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/02/28 19:22:43 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,14 +75,13 @@ void	init_helper(t_data *data)
 void	sort_hundred(t_data *data)
 {
 	int	i;
-	int	p;
+	int	p = 3;
 
 	i = 0;
-	p = 3;
 	init_helper(data);
 	sort_helper(data->helper, data->stack_a.size);
 	init_pivots(p, data);
-	while (i < p)
+	while (i > (data->stack_a.size / 4) )
 	{
 		divide_stack(i, data);
 		i++;
