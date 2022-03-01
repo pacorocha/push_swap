@@ -39,12 +39,12 @@ void	divide_stack(int p, t_data *data)
 		{
 			ndl = data->stack_a.elems[i];
 			index = get_index(data->stack_a.elems, ndl, data->stack_a.size);
-			distance = (data->stack_a.size * (p + 1) / 4);
+			distance = (data->stack_a.size / 2);
 			if (index == 0)
 				handle_push("pb", data);
 			else
 			{
-				if (distance > index)
+				if (index < distance)
 					handle_rotate("ra", data);
 				else
 					handle_rrotate("rra", data);
