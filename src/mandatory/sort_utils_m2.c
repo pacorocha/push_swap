@@ -22,14 +22,7 @@ void	conquer_b(t_data *data)
 	if (index == 0)
 		handle_push("pa", data);
 	else
-	{
-		while (index != 0)
-		{
-			handle_rotate("rb", data);
-			index = get_index(data->stack_b.elems, biggest, data->stack_b.size);
-		}
-		handle_push("pa", data);
-	}
+		handle_rotate("rb", data);
 }
 
 void	divide_stack(int p, t_data *data)
@@ -47,7 +40,9 @@ void	divide_stack(int p, t_data *data)
 			ndl = data->stack_a.elems[i];
 			index = get_index(data->stack_a.elems, ndl, data->stack_a.size);
 			distance = (data->stack_a.size * (p + 1) / 4);
-			if (index != 0)
+			if (index == 0)
+				handle_push("pb", data);
+			else
 			{
 				if (distance > index)
 					handle_rotate("ra", data);
@@ -55,8 +50,6 @@ void	divide_stack(int p, t_data *data)
 					handle_rrotate("rra", data);
 				index = get_index(data->stack_a.elems, ndl, data->stack_a.size);
 			}
-			else
-				handle_push("pb", data);
 		}
 		i++;
 	}
