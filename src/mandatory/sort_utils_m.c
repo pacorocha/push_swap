@@ -75,7 +75,7 @@ void	init_helper(t_data *data)
 void	sort_hundred(t_data *data)
 {
 	int	i;
-	int	p = 3;
+	int	p = 4;
 
 	i = 0;
 	init_helper(data);

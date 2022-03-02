@@ -16,13 +16,20 @@ void	conquer_b(t_data *data)
 {
 	int	biggest;
 	int	index;
+	int distance;
 
 	biggest = find_biggest(data->stack_b.elems, data->stack_b.size);
 	index = get_index(data->stack_b.elems, biggest, data->stack_b.size);
-	if (index == 0)
-		handle_push("pa", data);
-	else
-		handle_rotate("rb", data);
+	distance = (data->stack_b.size / 2);
+	while (index != 0)
+	{
+		if (distance > index)
+			handle_rotate("rb", data);
+		else
+			handle_rrotate("rrb", data);
+		index = get_index(data->stack_b.elems, biggest, data->stack_b.size);
+	}
+	handle_push("pa", data);
 }
 
 void	divide_stack(int p, t_data *data)
@@ -34,7 +41,7 @@ void	divide_stack(int p, t_data *data)
 	size = data->stack_a.size;
 	while (i < size)
 	{
-		if (data->stack_a.elems[i] <= data->pivots[p])
+		if (data->stack_a.elems[0] <= data->pivots[p])
 			handle_push("pb", data);
 		else
 			handle_rotate("ra", data);
