@@ -16,7 +16,7 @@ void	conquer_b(t_data *data)
 {
 	int	biggest;
 	int	index;
-	int distance;
+	int	distance;
 
 	biggest = find_biggest(data->stack_b.elems, data->stack_b.size);
 	index = get_index(data->stack_b.elems, biggest, data->stack_b.size);
@@ -35,7 +35,7 @@ void	conquer_b(t_data *data)
 void	divide_stack(int p, t_data *data)
 {
 	int	i;
-	int size;
+	int	size;
 
 	i = 0;
 	size = data->stack_a.size;

@@ -75,13 +75,14 @@ void	init_helper(t_data *data)
 void	sort_hundred(t_data *data)
 {
 	int	i;
-	int	p = 4;
+	int	p;
 
 	i = 0;
+	p = 4;
 	init_helper(data);
 	sort_helper(data->helper, data->stack_a.size);
 	init_pivots(p, data);
-	while(i <= p)
+	while (i <= p)
 	{
 		divide_stack(i, data);
 		i++;
