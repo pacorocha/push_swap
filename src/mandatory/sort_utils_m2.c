@@ -28,29 +28,16 @@ void	conquer_b(t_data *data)
 void	divide_stack(int p, t_data *data)
 {
 	int	i;
-	int	ndl;
-	int	index;
-	int	distance;
+	int size;
 
 	i = 0;
-	while (i < data->stack_a.size)
+	size = data->stack_a.size;
+	while (i < size)
 	{
 		if (data->stack_a.elems[i] <= data->pivots[p])
-		{
-			ndl = data->stack_a.elems[i];
-			index = get_index(data->stack_a.elems, ndl, data->stack_a.size);
-			distance = (data->stack_a.size / 2);
-			if (index == 0)
-				handle_push("pb", data);
-			else
-			{
-				if (index < distance)
-					handle_rotate("ra", data);
-				else
-					handle_rrotate("rra", data);
-				index = get_index(data->stack_a.elems, ndl, data->stack_a.size);
-			}
-		}
+			handle_push("pb", data);
+		else
+			handle_rotate("ra", data);
 		i++;
 	}
 }

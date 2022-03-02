@@ -53,7 +53,7 @@ void	init_pivots(int i, t_data *data)
 	j = 0;
 	while (j < i)
 	{
-		p_i[j] = data->stack_a.size * (j + 1) / 4;
+		p_i[j] = (data->stack_a.size * (j + 1) / 4) - 1;
 		data->pivots[j] = data->helper[p_i[j]];
 		j++;
 	}
@@ -81,15 +81,11 @@ void	sort_hundred(t_data *data)
 	init_helper(data);
 	sort_helper(data->helper, data->stack_a.size);
 	init_pivots(p, data);
-	while (i > (data->stack_a.size / 4) )
+	while(i <= p)
 	{
 		divide_stack(i, data);
 		i++;
 	}
-	while (is_sorted(data->stack_a.elems, data->stack_a.size) == 0)
-		sort_small(data);
-	if (is_sorted(data->stack_a.elems, data->stack_a.size) == 0)
-		sort_three(data);
 	while (data->stack_b.size > 0)
 		conquer_b(data);
 }
