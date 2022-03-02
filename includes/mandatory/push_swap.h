@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 00:30:23 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/02/19 22:17:38 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/03/02 13:59:52 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,6 @@ void		init_pivots(int i, t_data *data);
 void		divide_stack(int p, t_data *data);
 void		init_helper(t_data *data);
 void		conquer_b(t_data *data);
+void		sort_over_hundred(t_data *data);
 
 #endif

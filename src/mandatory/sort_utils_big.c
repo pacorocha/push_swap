@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*   sort_utils_big.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/20 20:48:39 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/03/02 13:54:04 by jfrancis         ###   ########.fr       */
+/*   Created: 2022/03/02 13:54:43 by jfrancis          #+#    #+#             */
+/*   Updated: 2022/03/02 13:55:15 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/mandatory/push_swap.h"
 
-void	start_push_swap(t_data *data)
+void	sort_over_hundred(t_data *data)
 {
-	if (is_sorted(data->stack, data->stack_size) == 0)
+	int	i;
+	int	p;
+
+	i = 0;
+	p = 8;
+	init_helper(data);
+	sort_helper(data->helper, data->stack_a.size);
+	init_pivots(p, data);
+	while (i <= p)
 	{
-		create_stacks(data);
-		if (data->stack_size < 3)
-			sort_two(data);
-		else if (data->stack_size == 3)
-			sort_three(data);
-		else if (data->stack_size > 3 && data->stack_size <= 10)
-			sort_ten(data);
-		else if (data->stack_size > 10 && data->stack_size <= 100)
-			sort_hundred(data);
-		else if (data->stack_size > 100)
-			sort_over_hundred(data);
-		destroy_stacks(data);
+		divide_stack(i, data);
+		i++;
 	}
+	while (data->stack_b.size > 0)
+		conquer_b(data);
 }
