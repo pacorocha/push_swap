@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 21:46:00 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/03/02 22:47:29 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/03/02 23:05:39 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	init_pivots(int i, t_data *data)
 	j = 0;
 	while (j < i)
 	{
-		p_i[j] = (data->stack_a.size * (j + 1) / 4) - 1;
+		p_i[j] = (data->stack_a.size * (j + 1) / i) - 1;
 		data->pivots[j] = data->helper[p_i[j]];
 		j++;
 	}
@@ -86,9 +86,7 @@ void	sort_big(int p, t_data *data)
 		divide_stack(i, data);
 		i++;
 	}
-	free(data->helper);
 	while (data->stack_b.size > 0)
 		conquer_b(data);
 	free(data->pivots);
-	data->helper = NULL;
 }
