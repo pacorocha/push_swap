@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 13:54:43 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/03/02 13:55:15 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/03/02 22:20:18 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,6 @@ void	sort_over_hundred(t_data *data)
 	}
 	while (data->stack_b.size > 0)
 		conquer_b(data);
+	free(data->helper);
+	free(data->pivots);
 }
