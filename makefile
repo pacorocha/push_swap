@@ -4,7 +4,7 @@ INCLUDES = -I ./includes
 FILES = push_swap_tools.c memory_tools.c push_swap.c error_handler.c \
 		validation.c sort_utils.c swap_utils.c push_utils.c rotate_utils.c \
 		rrotate_utils.c stack_utils.c push_swap_utils.c find_tools.c \
-		sort_utils_m.c sort_utils_m2.c print_tools.c sort_utils_big.c
+		sort_utils_m.c sort_utils_m2.c print_tools.c
 SRC = $(FILES)
 SRC_PATH = ./src/mandatory/
 OBJECTS = $(SRC:%.c=%.o)

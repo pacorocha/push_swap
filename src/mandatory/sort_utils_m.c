@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 21:46:00 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/03/02 22:42:58 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/03/02 22:47:29 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,11 @@ void	init_helper(t_data *data)
 	}
 }
 
-void	sort_hundred(t_data *data)
+void	sort_big(int p, t_data *data)
 {
 	int	i;
-	int	p;
 
 	i = 0;
-	p = 4;
 	init_helper(data);
 	sort_helper(data->helper, data->stack_a.size);
 	init_pivots(p, data);

@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 00:30:23 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/03/02 13:59:52 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/03/02 22:46:06 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,12 @@ void		sort_two(t_data *data);
 int			sort_three(t_data *data);
 void		sort_small(t_data *data);
 void		sort_ten(t_data *data);
-void		sort_hundred(t_data *data);
+void		sort_big(int p, t_data *data);
 void		helper_swap(int *x, int *y);
 void		sort_helper(int *arr, int n);
 void		init_pivots(int i, t_data *data);
 void		divide_stack(int p, t_data *data);
 void		init_helper(t_data *data);
 void		conquer_b(t_data *data);
-void		sort_over_hundred(t_data *data);
 
 #endif
