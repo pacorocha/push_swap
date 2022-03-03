@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 21:46:00 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/03/02 22:21:12 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/03/02 22:42:58 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,9 @@ void	sort_hundred(t_data *data)
 		divide_stack(i, data);
 		i++;
 	}
+	free(data->helper);
 	while (data->stack_b.size > 0)
 		conquer_b(data);
-	free(data->helper);
 	free(data->pivots);
+	data->helper = NULL;
 }
