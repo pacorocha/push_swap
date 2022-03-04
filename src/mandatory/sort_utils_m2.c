@@ -48,3 +48,9 @@ void	divide_stack(int p, t_data *data)
 		i++;
 	}
 }
+
+void	destroy_helpers(t_data *data)
+{
+	free(data->pivots);
+	free(data->helper);
+}

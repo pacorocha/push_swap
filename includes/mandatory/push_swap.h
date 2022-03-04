@@ -77,5 +77,6 @@ void		init_pivots(int i, t_data *data);
 void		divide_stack(int p, t_data *data);
 void		init_helper(t_data *data);
 void		conquer_b(t_data *data);
+void		destroy_helpers(t_data *data);
 
 #endif

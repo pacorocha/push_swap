@@ -27,6 +27,8 @@ void	start_push_swap(t_data *data)
 			sort_big(4, data);
 		else
 			sort_big(8, data);
+		if (data->stack_size > 10)
+			destroy_helpers(data);
 		destroy_stacks(data);
 	}
 }

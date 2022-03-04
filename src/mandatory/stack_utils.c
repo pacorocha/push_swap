@@ -32,8 +32,6 @@ void	destroy_stacks(t_data *data)
 {
 	free(data->stack_a.elems);
 	free(data->stack_b.elems);
-	free(data->pivots);
-	free(data->helper);
 	data->stack_a.elems = NULL;
 	data->stack_b.elems = NULL;
 }
