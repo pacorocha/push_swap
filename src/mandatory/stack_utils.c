@@ -20,7 +20,7 @@ void	create_stacks(t_data *data)
 	data->stack_a.size = data->stack_size;
 	data->stack_b.size = 0;
 	data->stack_a.elems = ft_calloc(data->stack_a.size, sizeof (int));
-	data->stack_b.elems = ft_calloc(data->stack_b.size, sizeof (int));
+	data->stack_b.elems = ft_calloc(data->stack_a.size, sizeof (int));
 	while (i < data->stack_size)
 	{
 		data->stack_a.elems[i] = data->stack[i];
@@ -32,6 +32,8 @@ void	destroy_stacks(t_data *data)
 {
 	free(data->stack_a.elems);
 	free(data->stack_b.elems);
+	free(data->pivots);
+	free(data->helper);
 	data->stack_a.elems = NULL;
 	data->stack_b.elems = NULL;
 }

@@ -88,5 +88,4 @@ void	sort_big(int p, t_data *data)
 	}
 	while (data->stack_b.size > 0)
 		conquer_b(data);
-	free(data->pivots);
 }

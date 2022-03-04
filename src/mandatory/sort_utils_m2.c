@@ -21,7 +21,7 @@ void	conquer_b(t_data *data)
 	biggest = find_biggest(data->stack_b.elems, data->stack_b.size);
 	index = get_index(data->stack_b.elems, biggest, data->stack_b.size);
 	distance = (data->stack_b.size / 2);
-	while (index != 0)
+	while (index > 0)
 	{
 		if (distance > index)
 			handle_rotate("rb", data);

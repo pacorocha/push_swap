@@ -14,7 +14,7 @@
 
 void	push(t_stack *stack_src, t_stack *stack_dest)
 {
-	if (stack_src->size != 0)
+	if (stack_src->size > 0)
 	{
 		ft_memmove(&stack_dest->elems[1], &stack_dest->elems[0],
 			sizeof(int) * stack_dest->size);
