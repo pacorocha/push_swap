@@ -6,7 +6,7 @@
 /*   By: jfrancis <jfrancis@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/08 00:30:23 by jfrancis          #+#    #+#             */
-/*   Updated: 2022/03/02 22:46:06 by jfrancis         ###   ########.fr       */
+/*   Updated: 2022/03/04 13:11:49 by jfrancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,9 @@ void		*ft_memmove(void *dest, const void *src, size_t n);
 void		*ft_calloc(size_t nmemb, size_t size);
 void		ft_printnb_array(int *arr, int size);
 
-void		print_error(void);
+void		check_dups(t_data *data);
+int			validate_number(char **argv, int i, t_data *data);
+void		print_error(t_data *data);
 int			*init_stack(int argc, int *array);
 void		init_push_swap(int argc, char **argv, t_data *data);
 void		check_dups(t_data *data);
