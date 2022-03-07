@@ -35,11 +35,20 @@ void	check_dups(t_data *data)
 int	validate_number(char **argv, int i, t_data *data)
 {
 	long int	j;
+	int			index;
+	int			arg_size;
 
 	j = 0;
-	if (argv[i][0] != '-')
-		if (!ft_isdigit(argv[i][0]))
+	index = 0;
+	arg_size = ft_strlen(argv[i]);
+	if (argv[i][index] == '-')
+		index++;
+	while (index < arg_size)
+	{
+		if (!ft_isdigit(argv[i][index]))
 			print_error(data);
+		index++;
+	}
 	j = ft_atol(argv[i]);
 	if (j > MAX_INT || j < MIN_INT)
 		print_error(data);

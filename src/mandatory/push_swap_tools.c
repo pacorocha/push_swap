@@ -51,3 +51,16 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		i++;
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	n;
+
+	n = 0;
+	while (*s != '\0')
+	{
+		s++;
+		n++;
+	}
+	return (n);
+}
